@@ -1,20 +1,19 @@
 package io.github.sefiraat.danktech2.slimefun.packs;
 
+import javax.annotation.Nonnull;
+
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.attributes.DistinctiveItem;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
-
-public class DankPack extends UnplaceableBlock implements DistinctiveItem {
+public class DankPack extends UnplaceableBlock {
 
     @Getter
     private final int tier;
@@ -31,8 +30,22 @@ public class DankPack extends UnplaceableBlock implements DistinctiveItem {
         addItemSetting(capacityPerSlot);
     }
 
-    @Override
     public boolean canStack(@Nonnull ItemMeta sfItemMeta, @Nonnull ItemMeta itemMeta) {
         return sfItemMeta.getPersistentDataContainer().equals(itemMeta.getPersistentDataContainer());
     }
+
+	public ItemSetting<Integer> getCapacityPerSlot() {
+		// TODO Auto-generated method stub
+		return capacityPerSlot;
+	}
+
+	public int getTier() {
+		// TODO Auto-generated method stub
+		return tier;
+	}
+
+	public int getSlots() {
+		// TODO Auto-generated method stub
+		return slots;
+	}
 }

@@ -4,6 +4,7 @@ import io.github.sefiraat.danktech2.DankTech2;
 import io.github.sefiraat.danktech2.slimefun.machines.DankCrafter;
 import io.github.sefiraat.danktech2.slimefun.machines.DankUnloader;
 import io.github.sefiraat.danktech2.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import lombok.Getter;
@@ -64,4 +65,9 @@ public class Machines {
         dankCrafter.register(plugin);
         dankUnloader.register(plugin);
     }
+
+	public static SlimefunItem getDankCrafter() {
+		// TODO Auto-generated method stub
+		return dankCrafter;
+	}
 }

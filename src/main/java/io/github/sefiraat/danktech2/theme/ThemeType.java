@@ -131,7 +131,12 @@ public enum ThemeType {
         );
     }
 
-    /**
+    String getLoreLine() {
+		// TODO Auto-generated method stub
+		return loreLine;
+	}
+
+	/**
      * Gets an ItemStack with a pre-populated lore and name with themed colors.
      *
      * @param material  The {@link Material} used to base the {@link ItemStack} on
@@ -211,4 +216,9 @@ public enum ThemeType {
             size
         );
     }
+
+    public ChatColor getColor() {
+		// TODO Auto-generated method stub
+		return color;
+	}
 }

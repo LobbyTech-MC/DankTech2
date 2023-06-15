@@ -1,5 +1,8 @@
 package io.github.sefiraat.danktech2.slimefun;
 
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
 import io.github.sefiraat.danktech2.DankTech2;
 import io.github.sefiraat.danktech2.theme.ThemeType;
 import io.github.sefiraat.danktech2.utils.Skulls;
@@ -10,9 +13,6 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
-import org.bukkit.Material;
-import org.bukkit.block.Skull;
-import org.bukkit.inventory.ItemStack;
 
 @UtilityClass
 public class Materials {
@@ -232,4 +232,41 @@ public class Materials {
         dankCell8.register(plugin);
         dankCell9.register(plugin);
     }
+
+	public static SlimefunItem getDankCell1() {
+		// TODO Auto-generated method stub
+		return dankCell1;
+	}
+	public static SlimefunItem getDankCell2() {
+		// TODO Auto-generated method stub
+		return dankCell2;
+	}
+	public static SlimefunItem getDankCell3() {
+		// TODO Auto-generated method stub
+		return dankCell3;
+	}
+	public static SlimefunItem getDankCell4() {
+		// TODO Auto-generated method stub
+		return dankCell4;
+	}
+	public static SlimefunItem getDankCell5() {
+		// TODO Auto-generated method stub
+		return dankCell5;
+	}
+	public static SlimefunItem getDankCell6() {
+		// TODO Auto-generated method stub
+		return dankCell6;
+	}
+	public static SlimefunItem getDankCell7() {
+		// TODO Auto-generated method stub
+		return dankCell7;
+	}
+	public static SlimefunItem getDankCell8() {
+		// TODO Auto-generated method stub
+		return dankCell8;
+	}
+	public static SlimefunItem getDankCell9() {
+		// TODO Auto-generated method stub
+		return dankCell9;
+	}
 }

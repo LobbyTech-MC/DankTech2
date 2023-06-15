@@ -1,7 +1,9 @@
 package io.github.sefiraat.danktech2.slimefun;
 
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
 import io.github.sefiraat.danktech2.DankTech2;
-import io.github.sefiraat.danktech2.slimefun.itemgroups.DummyItemGroup;
 import io.github.sefiraat.danktech2.theme.ThemeType;
 import io.github.sefiraat.danktech2.utils.Keys;
 import io.github.sefiraat.danktech2.utils.Skulls;
@@ -9,8 +11,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 
 @UtilityClass
 public final class ItemGroups {

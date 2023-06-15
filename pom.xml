@@ -109,7 +109,7 @@
         <dependency>
             <groupId>com.github.StarWishsama</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>2022.06</version>
+            <version>RC-33</version>
             <scope>provided</scope>
         </dependency>
 
@@ -148,7 +148,7 @@
         <dependency>
             <groupId>com.bgsoftware</groupId>
             <artifactId>WildStackerAPI</artifactId>
-            <version>3.8.0</version>
+            <version>2023.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -160,8 +160,18 @@
         <dependency>
             <groupId>net.guizhanss</groupId>
             <artifactId>GuizhanLib</artifactId>
-            <version>0.9.9</version>
+            <version>1.2.1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+        	<groupId>net.guizhanss</groupId>
+        	<artifactId>GuizhanLib-updater</artifactId>
+        	<version>1.2.1</version>
+        </dependency>
+        <dependency>
+        	<groupId>net.guizhanss</groupId>
+        	<artifactId>GuizhanLibPlugin</artifactId>
+        	<version>1.2.1</version>
         </dependency>
     </dependencies>
 

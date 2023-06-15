@@ -33,4 +33,29 @@ public class TrashPackInstance {
         items[index] = null;
     }
 
+	public int getTier() {
+		// TODO Auto-generated method stub
+		return tier;
+	}
+
+	public ItemStack[] getItems() {
+		// TODO Auto-generated method stub
+		return items;
+	}
+
+	public long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
+
+	public void setItems(ItemStack[] items) {
+		// TODO Auto-generated method stub
+		this.items = items;
+	}
+
+	public void setTier(int tier) {
+		// TODO Auto-generated method stub
+		this.tier = tier;
+	}
+
 }

@@ -1,5 +1,18 @@
 package io.github.sefiraat.danktech2;
 
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.AdvancedPie;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import io.github.sefiraat.danktech2.commands.DankTechMain;
 import io.github.sefiraat.danktech2.core.DankPackInstance;
 import io.github.sefiraat.danktech2.managers.ConfigManager;
@@ -15,19 +28,7 @@ import io.github.sefiraat.danktech2.utils.Keys;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentDankInstanceType;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
-import org.bstats.bukkit.Metrics;
-import org.bstats.charts.AdvancedPie;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.text.MessageFormat;
-import java.util.HashMap;
-import java.util.Map;
+import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
 
 public class DankTech2 extends JavaPlugin implements SlimefunAddon {
 
@@ -62,7 +63,7 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
         setupSlimefun();
 
         this.configManager = new ConfigManager();
-        this.listenerManager = new ListenerManager();
+        this.setListenerManager(new ListenerManager());
         this.supportedPluginManager = new SupportedPluginManager();
         this.runnableManager = new RunnableManager();
 
@@ -80,7 +81,7 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
         if (getConfig().getBoolean("auto-update")
             && getDescription().getVersion().startsWith("Build ")
         ) {
-            new GuizhanBuildsUpdater(this, getFile(), username, repo, branch, false).start();
+            GuizhanBuildsUpdaterWrapper.start(this, getFile(), username, repo, branch, false);
         }
     }
 
@@ -181,4 +182,12 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
     public static RunnableManager getRunnableManager() {
         return DankTech2.getInstance().runnableManager;
     }
+
+	public ListenerManager getListenerManager() {
+		return listenerManager;
+	}
+
+	public void setListenerManager(ListenerManager listenerManager) {
+		this.listenerManager = listenerManager;
+	}
 }

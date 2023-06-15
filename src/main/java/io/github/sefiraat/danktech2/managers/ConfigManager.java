@@ -118,4 +118,9 @@ public class ConfigManager {
     public static List<String> getBlacklistedWorldsBuild() {
         return DankTech2.getInstance().getConfig().getStringList("world_blacklist_build");
     }
+
+	public static ConfigManager getInstance() {
+		// TODO Auto-generated method stub
+		return instance;
+	}
 }

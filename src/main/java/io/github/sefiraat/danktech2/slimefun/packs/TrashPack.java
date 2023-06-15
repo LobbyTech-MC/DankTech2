@@ -19,4 +19,14 @@ public class TrashPack extends UnplaceableBlock {
         this.tier = tier;
         this.slots = tier * 2;
     }
+
+	public int getSlots() {
+		// TODO Auto-generated method stub
+		return slots;
+	}
+
+	public int getTier() {
+		// TODO Auto-generated method stub
+		return tier;
+	}
 }
