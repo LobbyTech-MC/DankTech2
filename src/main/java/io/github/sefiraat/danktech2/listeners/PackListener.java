@@ -171,7 +171,7 @@ public class PackListener implements Listener {
         if (block.getBlockData().getMaterial().equals(Material.AIR)
             && Slimefun.getProtectionManager().hasPermission(player, block, Interaction.PLACE_BLOCK)
         ) {
-            Collection<Entity> entities = block.getWorld().getNearbyEntities(block.getLocation(), 0.5, 0.5, 0.5, entity -> entity.getType() != EntityType.DROPPED_ITEM);
+            Collection<Entity> entities = block.getWorld().getNearbyEntities(block.getLocation(), 0.5, 0.5, 0.5, entity -> entity.getType() != EntityType.ITEM);
             return entities.isEmpty();
         }
         return false;
