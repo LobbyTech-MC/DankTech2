@@ -28,7 +28,20 @@ import io.github.sefiraat.danktech2.utils.Keys;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentDankInstanceType;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import net.guizhanss.guizhanlibplugin.updater.GuizhanBuildsUpdaterWrapper;
+import net.guizhanss.minecraft.guizhanlib.updater.GuizhanUpdater;
+import org.bstats.bukkit.Metrics;
+import org.bstats.charts.AdvancedPie;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
 
 public class DankTech2 extends JavaPlugin implements SlimefunAddon {
 
@@ -44,7 +57,7 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
     private RunnableManager runnableManager;
 
     public DankTech2() {
-        this.username = "ybw0014";
+        this.username = "SlimefunGuguProject";
         this.repo = "DankTech2";
         this.branch = "master";
     }
@@ -52,6 +65,13 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
+
+        if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
+            getLogger().log(Level.SEVERE, "本插件需要 鬼斩前置库插件(GuizhanLibPlugin) 才能运行!");
+            getLogger().log(Level.SEVERE, "从此处下载: https://50L.cc/gzlib");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
 
         getLogger().info("########################################");
         getLogger().info("            DankTech2 无底存储2           ");
@@ -78,10 +98,9 @@ public class DankTech2 extends JavaPlugin implements SlimefunAddon {
     }
 
     public void tryUpdate() {
-        if (getConfig().getBoolean("auto-update")
-            && getDescription().getVersion().startsWith("Build ")
+        if (getConfig().getBoolean("auto-update") && getDescription().getVersion().startsWith("Build")
         ) {
-            GuizhanBuildsUpdaterWrapper.start(this, getFile(), username, repo, branch, false);
+            GuizhanUpdater.start(this, getFile(), this.username, this.repo, this.branch);
         }
     }
 

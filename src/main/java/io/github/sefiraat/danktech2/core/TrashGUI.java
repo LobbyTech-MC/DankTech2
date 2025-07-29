@@ -9,11 +9,13 @@ import io.github.sefiraat.danktech2.utils.Skulls;
 import io.github.sefiraat.danktech2.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.danktech2.utils.datatypes.PersistentTrashInstanceType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -148,11 +150,29 @@ public class TrashGUI extends ChestMenu {
     }
 
     public boolean allowedInTrash(ItemStack itemStack) {
+        if (itemStack == null) {
+            return false;
+        }
+        Material material = itemStack.getType();
+        if (material == Material.AIR
+                || Tag.SHULKER_BOXES.isTagged(material)
+                || material == Material.BUNDLE) {
+            return false;
+        }
+
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
         return !(slimefunItem instanceof DankPack) && !(slimefunItem instanceof TrashPack);
     }
 
     protected static ItemStack getDisplayStack(ItemStack itemStack) {
-        return itemStack.clone();
+        // Fix #14 - Display items can be taken
+        CustomItemStack customItemStack = new CustomItemStack(
+                itemStack.clone(),
+                itemMeta -> {
+                    PersistentDataAPI.setBoolean(itemMeta, Keys.DISPLAY_ITEM, true);
+                }
+        );
+
+        return new ItemStack(customItemStack);
     }
 }

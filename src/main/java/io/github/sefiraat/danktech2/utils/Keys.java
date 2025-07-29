@@ -15,6 +15,7 @@ public class Keys {
     public static final NamespacedKey DANK_INSTANCE = Keys.newKey("dank_instance");
     public static final NamespacedKey DANK_SELECTED_SLOT = Keys.newKey("dank_slot");
     public static final NamespacedKey TRASH_INSTANCE = Keys.newKey("trash_instance");
+    public static final NamespacedKey DISPLAY_ITEM = Keys.newKey("display_item");
 
     // Entity
     public static final NamespacedKey DISPLAY_STAND = Keys.newKey("display");
