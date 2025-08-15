@@ -19,7 +19,7 @@ public final class ItemGroups {
         Keys.newKey("main"),
         new CustomItemStack(
             Skulls.MAIN_HEAD.getPlayerHead(),
-            ThemeType.MAIN.getColor() + "无底存储2"
+            ThemeType.MAIN.getColor() + "无底存储"
         )
     );
 
